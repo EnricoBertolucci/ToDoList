@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cabecalho da pagina -->
+  <header>
+    <h1>Lista de Tarefas</h1>
+    <p>Organize suas atividades do dia a dia</p>
+  </header>
+
+  <!-- Barra de navegacao com busca e filtros -->
+  <nav>
+    <label for="campoBusca">Buscar:</label>
+    <input
+      type="text"
+      id="campoBusca"
+      placeholder="Pesquisar pelo titulo..."
+    />
+    <div class="filtros">
+      <button class="btn-filtro ativo" data-filtro="todos">Todas</button>
+      <button class="btn-filtro" data-filtro="pendente">Pendentes</button>
+      <button class="btn-filtro" data-filtro="concluida">Concluidas</button>
+      <button class="btn-filtro" data-filtro="alta">Alta</button>
+      <button class="btn-filtro" data-filtro="media">Media</button>
+      <button class="btn-filtro" data-filtro="baixa">Baixa</button>
+    </div>
+  </nav>
+
+  <!-- Conteudo principal -->
+  <main>
+
+    <!-- Formulario de cadastro -->
+    <section id="secao-formulario">
+      <h2 id="titulo-formulario">Nova Tarefa</h2>
+
+      <form id="formularioTarefa" novalidate>
+
+        <div class="campo">
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" placeholder="Ex: Estudar para a prova" />
+          <span class="erro" id="erro-titulo">O titulo nao pode estar vazio.</span>
+        </div>
+
+        <div class="campo">
+          <label for="descricao">Descricao</label>
+          <textarea id="descricao" placeholder="Descreva os detalhes da tarefa..."></textarea>
+          <span class="erro" id="erro-descricao">A descricao nao pode estar vazia.</span>
+        </div>
+
+        <div class="campo">
+          <label for="dataCriacao">Data de Criacao</label>
+          <input type="date" id="dataCriacao" />
+        </div>
+
+        <div class="campo">
+          <label for="prioridade">Prioridade</label>
+          <select id="prioridade">
+            <option value="baixa">Baixa</option>
+            <option value="media" selected>Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="status">Status</label>
+          <select id="status">
+            <option value="pendente" selected>Pendente</option>
+            <option value="concluida">Concluida</option>
+          </select>
+        </div>
+
+        <div class="botoes">
+          <button type="submit" class="btn btn-salvar" id="btnCadastrar">Cadastrar</button>
+          <button type="button" class="btn btn-limpar" id="btnLimpar">Limpar</button>
+        </div>
+
+      </form>
+    </section>
+
+    <!-- Listagem de tarefas -->
+    <section id="secao-listagem">
+      <h2>
+        Minhas Tarefas
+        <span id="contadorTarefas">0</span>
+      </h2>
+
+      <!-- Exibido quando nao ha tarefas -->
+      <div id="mensagemVazia">
+        <p>Nenhuma tarefa cadastrada.</p>
+        <p style="font-size: 0.85rem; margin-top: 6px;">Use o formulario ao lado para adicionar uma tarefa.</p>
+      </div>
+
+      <!-- Lista de cards -->
+      <div id="listaTarefas"></div>
+    </section>
+
+  </main>
+
+  <!-- Rodape -->
+  <footer>
+    <p>Lista de Tarefas &mdash; Disciplina: Fundamentos da Programacao Web &mdash; HTML5, CSS3 e JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
