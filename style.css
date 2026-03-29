@@ -1,0 +1,379 @@
+/* Reset basico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+/* Cabecalho */
+header {
+  background-color: #3a6ea5;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+header p {
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* Barra de busca e filtros */
+nav {
+  background-color: #fff;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+nav label {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+#campoBusca {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  width: 220px;
+}
+
+.filtros {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-filtro {
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-filtro.ativo {
+  background-color: #3a6ea5;
+  color: white;
+  border-color: #3a6ea5;
+}
+
+/* Layout principal com Flexbox */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Secao do formulario */
+#secao-formulario {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 20px;
+  width: 340px;
+  flex-shrink: 0;
+}
+
+#secao-formulario h2 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #3a6ea5;
+  color: #3a6ea5;
+}
+
+/* Campos do formulario */
+.campo {
+  margin-bottom: 14px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+}
+
+.campo input.invalido,
+.campo textarea.invalido {
+  border-color: red;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 75px;
+}
+
+/* Mensagem de erro de validacao */
+.erro {
+  display: none;
+  color: red;
+  font-size: 0.78rem;
+  margin-top: 3px;
+}
+
+.erro.visivel {
+  display: block;
+}
+
+/* Botoes do formulario */
+.botoes {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.btn {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.88rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-salvar {
+  background-color: #3a6ea5;
+  color: white;
+}
+
+.btn-salvar:hover {
+  background-color: #2e5a8e;
+}
+
+.btn-limpar {
+  background-color: #eee;
+  color: #555;
+  border: 1px solid #ccc;
+}
+
+.btn-limpar:hover {
+  background-color: #ddd;
+}
+
+/* Secao da listagem */
+#secao-listagem {
+  flex: 1;
+  min-width: 280px;
+}
+
+#secao-listagem h2 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#contadorTarefas {
+  background-color: #3a6ea5;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+/* Mensagem lista vazia */
+#mensagemVazia {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #fff;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  color: #888;
+}
+
+#mensagemVazia.visivel {
+  display: block;
+}
+
+/* Cards de tarefa */
+#listaTarefas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-tarefa {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-left: 5px solid #ccc;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+/* Cor da borda esquerda por prioridade */
+.card-tarefa.prioridade-baixa { border-left-color: #28a745; }
+.card-tarefa.prioridade-media { border-left-color: #ffc107; }
+.card-tarefa.prioridade-alta  { border-left-color: #dc3545; }
+
+/* Visual de tarefa concluida */
+.card-tarefa.concluida {
+  opacity: 0.6;
+  background-color: #f8f8f8;
+}
+
+.card-tarefa.concluida .titulo-tarefa {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.card-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.titulo-tarefa {
+  font-size: 1rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+/* Badges de prioridade e status */
+.badges {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.badge-baixa    { background-color: #d4edda; color: #155724; }
+.badge-media    { background-color: #fff3cd; color: #856404; }
+.badge-alta     { background-color: #f8d7da; color: #721c24; }
+.badge-pendente  { background-color: #cce5ff; color: #004085; }
+.badge-concluida { background-color: #d4edda; color: #155724; }
+
+.descricao-tarefa {
+  font-size: 0.875rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card-rodape {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.data-tarefa {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+/* Botoes de acao do card */
+.acoes {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.btn-acao {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-concluir { background-color: #d4edda; color: #155724; }
+.btn-concluir:hover { background-color: #28a745; color: white; }
+
+.btn-reabrir { background-color: #fff3cd; color: #856404; }
+.btn-reabrir:hover { background-color: #ffc107; color: white; }
+
+.btn-editar { background-color: #cce5ff; color: #004085; }
+.btn-editar:hover { background-color: #3a6ea5; color: white; }
+
+.btn-excluir { background-color: #f8d7da; color: #721c24; }
+.btn-excluir:hover { background-color: #dc3545; color: white; }
+
+/* Rodape da pagina */
+footer {
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  text-align: center;
+  padding: 14px;
+  font-size: 0.82rem;
+  color: #888;
+  margin-top: 20px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  #secao-formulario {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #campoBusca {
+    width: 100%;
+  }
+
+  .filtros {
+    width: 100%;
+  }
+
+  .btn-filtro {
+    flex: 1;
+    text-align: center;
+  }
+
+  .botoes {
+    flex-direction: column;
+  }
+}
